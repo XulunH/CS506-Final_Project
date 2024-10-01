@@ -41,6 +41,7 @@ We plan to use the following visualizations:
 Libraries used:
 - **Matplotlib**: For basic visualizations like histograms and scatter plots.
 - **Seaborn**: For advanced statistical visualizations like heatmaps and correlation matrices.
+
 We will use Matplotlib and Seaborn for data visualization. Matplotlib is ideal for creating basic visualizations,  such as histograms and scatter plots, thus allowing us to gain a basic understanding of the distribution of accident severity (lethal vs. non-lethal) across different factors including driver age, weather conditions, or time of day. Seaborn will be used for more advanced statistical visualizations, such as heatmaps and correlation matrices, which will help us explore and visualize the relationships between weather conditions, age, and accident severity, offering deeper insights into how these factors interact.
 
 ## Test Plan
