@@ -48,8 +48,6 @@ We will use Matplotlib and Seaborn for data visualization. Matplotlib is ideal f
 - **Training Set**: We will use two years’ worth of traffic accident data (including weather conditions and driver age information) for training the model. This will help model learn relationships between weather conditions, driver age, and accident severity.
 - **Testing Set**: The remaining 20% of the data will be reserved for model evaluation. Specifically, we will use data from a separate 6-month period that follows the training set time frame. This temporal separation ensures that the model is tested on future, unseen data, improving the reliability of performance assessments.
 
-## Installation
-
 ### Prerequisites
 - Python 3.9
 - Libraries: `pandas`, `numpy`, `matplotlib`, `seaborn`, `scikit-learn`, `xgboost`, `lightgbm`
