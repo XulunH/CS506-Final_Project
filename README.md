@@ -2,7 +2,7 @@
 # Traffic Accident Prediction Based on Weather Conditions and Driver Age
 
 ## Project Overview
-This project explores the relationship between weather conditions, driver age, and the occurrence of traffic accidents. By modeling how weather impacts different age groups and influences the frequency and severity of accidents, we aim to uncover patterns and risk factors that can lead to informed decisions for improving road safety.
+This project aims to explore and model the relationship between weather conditions, driver age, and the occurrence of traffic accidents. By focusing on how various weather conditions impact different age groups and influence the frequency and severity of accidents, we plan to uncover patterns and risk factors that can lead to informed decisions for enhancing road safety. Such insights are intended to support transportation authorities, policymakers, and the public in implementing preventive and targeted road safety measures, especially during adverse weather conditions.
 
 ## Objectives and Goals
 1. **Develop a Predictive Model**: The core goal is to develop a machine learning model capable of predicting both the likelihood of traffic accidents and their severity (lethal vs. non-lethal) based on historical weather and driver age data. This model will serve as a foundation for understanding the relationship between environmental conditions and accident occurrence/severity.
