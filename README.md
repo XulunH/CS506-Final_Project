@@ -31,7 +31,6 @@ This project aims to explore and model the relationship between weather conditio
 XGBoost is particularly effective for tabular data and can help identify the most predictive features for both accident occurrence and severity.
 - **Multilayer Perceptron (MLP)**: MLPs work well with structured, tabular data, especially when we have continuous (e.g., temperature, wind speed) and categorical (e.g., weather type, age group) variables.
 We can apply MLP as the advanced model for improving predictive accuracy, especially when feature relationships are difficult to model with linear methods or decision trees. In our case, the features of the dataset (e.g., weather conditions, age, time of day) are fed into the input layer. The output layer produces the final prediction, which can be binary classification (lethal vs. non-lethal) or regression (accident severity score).
-- **(Optional) Deep Learning**: Considered if the dataset is large and has complex non-linear relationships.
 
 ## Data Visualization
 We plan to use the following visualizations:
