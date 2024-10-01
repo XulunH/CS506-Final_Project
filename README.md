@@ -11,7 +11,7 @@ This project aims to explore and model the relationship between weather conditio
 
 ## Data Collection
 - **Traffic Accident Data**: The primary sources for traffic accident data will be government databases, specifically  [Massachusetts Government Website](https://www.mass.gov) and [MassDOT](https://www.mass.gov/orgs/massachusetts-department-of-transportation). These sources provide access to historical accident data, which will be foundational for model training and analysis. Inchluding:
-  - Date and Time:The specific timestamp of each accident will allow the integration of corresponding weather data.
+  - Date and Time: The specific timestamp of each accident will allow the integration of corresponding weather data.
   - Location: Geographic information will be crucial for aligning accident data with weather conditions.
   - Severity: Information on the severity of each incident (fatal, injury, property damage only) will enable a nuanced analysis of weather's role in both the occurrence and severity of accidents.
   - Collision and Vehicle Types: Understanding the nature of collisions and vehicle types involved provides context for model prediction.
