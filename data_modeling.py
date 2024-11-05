@@ -13,56 +13,15 @@ from sklearn.tree import DecisionTreeClassifier
 from xgboost import XGBClassifier
 
 # Load data
-data = pd.read_csv('processed_dataset.csv')
-
-# Data cleaning
-
-# Convert 'Crash Date' to datetime
-data['Crash Date'] = pd.to_datetime(data['Crash Date'], errors='coerce')
-
-# Drop rows with missing 'Crash Date' or 'Crash Severity'
-data.dropna(subset=['Crash Date', 'Crash Severity'], inplace=True)
-
-# Drop rows where 'Crash Severity' is 'Unknown'
-data = data[data['Crash Severity'] != 'Unknown']
-
-# Extract time features
-data['Month'] = data['Crash Date'].dt.month
-data['DayOfWeek'] = data['Crash Date'].dt.dayofweek
-
-# Process 'Crash Hour' column to extract hour
-def extract_hour(crash_hour_range):
-    try:
-        start_time = crash_hour_range.split(' to ')[0]
-        hour = int(pd.to_datetime(start_time, format='%I:%M%p').hour)
-        return hour
-    except:
-        return np.nan
-
-data['Crash Hour Numeric'] = data['Crash Hour'].apply(extract_hour)
-
-# Fill missing 'Crash Hour Numeric' with median
-data['Crash Hour Numeric'] = data['Crash Hour Numeric'].fillna(data['Crash Hour Numeric'].median())
-
-# Handle 'Age of Driver' columns
-# Since the ages are in ranges, keep 'Age Range' as a categorical feature
-data['Age Range'] = data['Age of Driver - Youngest Known'].astype(str) + '-' + data['Age of Driver - Oldest Known'].astype(str)
-data['Age Range'] = data['Age Range'].fillna('Unknown')
-
-# Convert 'Number of Vehicles' to numeric
-data['Number of Vehicles'] = pd.to_numeric(data['Number of Vehicles'], errors='coerce')
-data['Number of Vehicles'] = data['Number of Vehicles'].fillna(data['Number of Vehicles'].median())
-
-# Convert 'Speed Limit' to numeric
-data['Speed Limit'] = pd.to_numeric(data['Speed Limit'], errors='coerce')
-data['Speed Limit'] = data['Speed Limit'].fillna(data['Speed Limit'].median())
+data = pd.read_csv('preprocessed_dataset.csv')
 
 # List of categorical features
 categorical_features = [
     'Weather Conditions',
     'Light Conditions',
     'Road Surface Condition',
-    'Age Range',
+    'Age of Driver - Youngest Known',
+    'Age of Driver - Oldest Known',
     'Driver Contributing Circumstances (All Drivers)',
     'Driver Distracted By (All Vehicles)',
     'First Harmful Event',
@@ -74,7 +33,6 @@ categorical_features = [
     'Vehicle Configuration (All Vehicles)',
     'Vehicle Emergency Use (All Vehicles)',
     'First Harmful Event Location',
-    'Road Contributing Circumstance',
     'City Town Name'
 ]
 
@@ -83,8 +41,7 @@ for col in categorical_features:
     data[col] = data[col].fillna('Unknown')
 
 # List of numerical features
-numerical_features = ['Month', 'DayOfWeek', 'Crash Hour Numeric', 'Number of Vehicles', 'Speed Limit']
-
+numerical_features = [ 'Crash Hour Numeric', 'Number of Vehicles', 'Speed Limit']
 # Prepare features and labels
 X = data[categorical_features + numerical_features]
 y = data['Crash Severity']
