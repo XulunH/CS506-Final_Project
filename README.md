@@ -58,6 +58,7 @@ The XGBoost model performed well, with a high recall for the “Property damage 
 Preliminary results. (e.g. we fit a linear model to the data and we achieve promising results, or we did some clustering and we notice a clear pattern in the data)
 
 Logistic Regression Result:
+
 The logistic regression model’s performance on the test set:
 
 <p align="center">
