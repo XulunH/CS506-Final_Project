@@ -7,29 +7,29 @@ This project aims to investigate the relationship between weather conditions, dr
 Visualizations help us identify key trends and correlations in crash data, such as the effects of time, weather, speed, and road conditions on crash severity and frequency. This analysis is useful for developing targeted safety measures or driving policies. Below are some of our initial visualization results.
 - **Distribution of Crash Severity**: The majority of crashes fall in the “Property damage only category”, significantly outnumbering other types. As a matter of fact, property damage takes up 75.71%, with non-fatal 24.04% and fatal injury only 0.25% of the total data. Therefore we would expect our prediction baseline to be 75.71%, and we need to improve the accuracy to be at least higher than this number.
    
-![Crash Severity Distribution](picture/Distribution of Crash Severity.png)
+![Crash Severity Distribution](file/Distribution of Crash Severity.png)
 
 - **Speed Limit by Crash Severity**: The data indicates a general trend that as the speed limit increases, the severity of crashes also tends to increase. Higher speed limits are associated with a greater likelihood of injuries, and especially fatalities. 
    
-![Speed Limit by Crash Severity](picture/Speed Limit by Crash Severity.png)
+![Speed Limit by Crash Severity](file/Speed Limit by Crash Severity.png)
 
 - **SDriver Age Distribution by Crash Severity**: Property damage only bars are distributed across all age groups, with peaks particularly around ages 20-30, indicating that younger age ranges have higher frequency of property damage accidents compared with other age groups. Non-fatal injuries are also more common among the younger drivers, especially around ages 20-30, suggesting that younger drivers may be more prone to accidents that lead to injuries. Fatal injuries, although rare, are slightly more prevalent among the age 20 and 40. This condition might be due to inexperience among young drivers. In this case, younger drivers should be more cautious and be trained to reduce the risk of accidents. 
    
-![Driver Age Distribution by Crash Severity](picture/Driver Age Distribution by Crash Severity.png)
+![Driver Age Distribution by Crash Severity](file/Driver Age Distribution by Crash Severity.png)
 
 - **Proportion of Crash Severity by Weather Conditions**: Across all weather conditions, the majority of crashes result in property damage without injuries. This is consistent across both favorable and adverse conditions. The fatal injury happens much more significantly in fog/smog conditions compared to others, which are barely visible on this graph(though they do exist for each weather condition). Interestingly, severe winds and snow actually have a higher proportion of no-injury accidents, which was not expected since they are considered worse weather conditions. It might be because people are actually driving more slowly and carefully in bad weather.
    
-![Proportion of Crash Severity by Weather Conditions](picture/Proportion of Crash Severity by Weather Conditions.png)
+![Proportion of Crash Severity by Weather Conditions](file/Proportion of Crash Severity by Weather Conditions.png)
 
 ## Detailed description of data processing done so far.
 Originally, we had planned to predict the severity of traffic accidents based upon only a few factors like weather conditions and age of drivers. But then we realized that these factors alone do not provide enough prediction accuracy as we assumed they would, therefore, we introduced many more factors into the dataset, and tried to pinpoint which features are most relevant in predicting the severity of accidents. All these additional factors can be pulled from the MASSDOT website which provides very detailed crash reports. Now it comes down to these features:
 
-![Feature](picture/1.jpg)
-![Feature](picture/2.jpg)
+![Feature](file/1.jpg)
+![Feature](file/2.jpg)
 
 Of all these features, some of the records are not very standard. For example in the weather condition column, we would see notations like clear/cloudy, snow/cloudy or even clear/clear, which are all very confusing. Therefore, we preprocessed some of the records to make them cleaner and easier to interpret with methods like this:
 
-![Feature](picture/3.jpg)
+![Feature](file/3.jpg)
 Do note that these are just preliminary data processing, which we will focus on enhancing later. 
 
 ## Detailed description of data modeling methods used so far.
@@ -44,19 +44,19 @@ Preliminary results. (e.g. we fit a linear model to the data and we achieve prom
 Logistic Regression Result:
 The logistic regression model’s performance on the test set:
 
-![Feature](picture/4.jpg)
+![Feature](file/4.jpg)
 The model performs well in identifying “Property Damage Only” cases, achieving high precision and recall. However, it struggles with the “Fatal Injury” category, where both precision and recall are zero due to the model’s difficulty in capturing this minority class.
 
-![Feature](picture/5.png)
+![Feature](file/5.png)
 In the linear regression case, most important features are collision with pedestrian and vulnerable users, and whether or not motorcycles are involved. These features seem to make sense because the people involved are not well protected, but we aim to find more useful features with more in depth research. 
 
 Decision Tree Result:
-![Feature](picture/6.jpg)
+![Feature](file/6.jpg)
 Performance by Class:  When we don’t set the max_depth,  decision trees might still create complex splits, making them sensitive to noise and outliers. This could result in lower accuracy on test data. Therefore here we set max_depth to 15 to achieve a good accuracy.
 The model heavily favors Property damage (the majority class), resulting in many Class 1 (Non-fatal Injury) instances being misclassified as Class 2 (Property damage). This is a common issue with imbalanced datasets, where the model learns to predict the majority class more accurately but struggles with minority classes.The model failed to correctly classify any instances of Fatal Injury, which has very low representation. This is a strong indicator that the model might benefit from techniques to handle class imbalance, such as resampling or adjusting class weights
 
 Feature Importance Analysis:
-![Feature](picture/7.png)
+![Feature](file/7.png)
 
 Below are the top three features that had the greatest impact on the results:
 First Harmful Event - Collision with Pedestrian: This feature is the most influential in predicting crash severity, indicating that collisions with pedestrians tend to significantly impact severity levels due to the vulnerability of pedestrians in crashes.
@@ -64,12 +64,12 @@ First Harmful Event - Collision with Cyclist: This feature ranks second, showing
 Manner of Collision - Sideswipe, Same Direction: This feature is important for distinguishing crash severity, as certain collision types, like sideswipes, can vary in severity depending on speed and angle, impacting the potential for injury or damage.
 
 XGBoost Model Result:
-![Feature](picture/8.jpg)
+![Feature](file/8.jpg)
 Performance by Class: The model showed high performance in predicting the “Property damage only” class but struggled to accurately predict “Fatal injury” cases due to class imbalance.
 
 The matrix shows that most predictions fall into the “Property damage only” category, indicating a need for further adjustments to improve minority class predictions.
 Feature Importance Analysis:
-![Feature](picture/8.png)
+![Feature](file/8.png)
 
 Using XGBoost’s feature importance scores, we identified key predictors of crash severity:
 
