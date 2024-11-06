@@ -54,6 +54,7 @@ plt.xlabel('Number of Crashes')
 plt.ylabel('Crash Severity')
 plt.tight_layout()
 plt.savefig('../result_pics/crash_severity_distribution.png')
+plt.show()
 plt.close()
 
 # Plot 4: Speed Limit vs. Crash Severity
@@ -64,6 +65,8 @@ plt.xlabel('Crash Severity')
 plt.ylabel('Speed Limit (mph)')
 plt.tight_layout()
 plt.savefig('../result_pics/speed_limit_by_crash_severity.png')
+plt.show()
+
 plt.close()
 
 # Plot 8: Driver Age Distribution
@@ -77,6 +80,7 @@ plt.xlabel('Age')
 plt.ylabel('Density')
 plt.tight_layout()
 plt.savefig('../result_pics/driver_age_distribution_by_crash_severity.png')
+plt.show()
 plt.close()
 
 # Group by 'Weather Conditions' and 'Crash Severity' to get counts
@@ -97,5 +101,6 @@ plt.xticks(rotation=45)
 plt.legend(title='Crash Severity')
 plt.tight_layout()
 plt.savefig('../result_pics/proportion_of_crash_severity_by_weather_conditions.png')
+plt.show()
 plt.close()
 

@@ -1,5 +1,7 @@
 # CS 506 Midterm Report
 
+DEMO VIDEO LINK: https://www.youtube.com/watch?v=f49Va9ZYIRo&ab_channel=XulunHuang
+
 ## Project Overview
 This project aims to investigate the relationship between weather conditions, driver age, and the occurrence of traffic accidents. By analyzing how different weather conditions affect various age groups and influence the frequency and severity of accidents, we aim to uncover patterns and risk factors that can be used to improve road safety. The insights derived from this analysis will support transportation authorities, policymakers, and the public in developing targeted, preventive safety measures, particularly during adverse weather conditions.
 
