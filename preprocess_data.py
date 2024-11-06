@@ -2,7 +2,7 @@ import pandas as pd
 import numpy as np
 
 # Load data
-data = pd.read_csv('revised_traffic_dataset.csv')
+data = pd.read_csv('../datasets/revised_traffic_dataset.csv')
 
 data.dropna(subset=['Crash Severity'], inplace=True)
 
@@ -103,4 +103,4 @@ def simplify_road_surface(condition):
 
 data['Road Surface Condition'] = data['Road Surface Condition'].apply(simplify_road_surface)
 
-data.to_csv('preprocessed_dataset.csv')
+data.to_csv('../datasets/preprocessed_dataset.csv')

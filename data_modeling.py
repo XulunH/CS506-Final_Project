@@ -13,7 +13,7 @@ from sklearn.tree import DecisionTreeClassifier
 from xgboost import XGBClassifier
 
 # Load data
-data = pd.read_csv('preprocessed_dataset.csv')
+data = pd.read_csv('../datasets/preprocessed_dataset.csv')
 
 # List of categorical features
 categorical_features = [
@@ -104,7 +104,7 @@ for model_name, classifier in models.items():
     print("\nConfusion Matrix:\n", conf_matrix)
     
     # Save evaluation metrics
-    with open(f"{model_name}_evaluation.txt", "w") as f:
+    with open(f"../result_files/{model_name}_evaluation.txt", "w") as f:
         f.write(f"{model_name} Model Accuracy: {accuracy}\n\n")
         f.write("Classification Report:\n")
         f.write(report)
@@ -153,5 +153,5 @@ for model_name, classifier in models.items():
     plt.yticks(fontsize=10)
     plt.subplots_adjust(left=0.4)
     plt.tight_layout()
-    plt.savefig(f"{model_name}_feature_importance.png", bbox_inches='tight')
+    plt.savefig(f"../result_pics/{model_name}_feature_importance.png", bbox_inches='tight')
     plt.show()

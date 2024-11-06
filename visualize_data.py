@@ -4,7 +4,7 @@ import seaborn as sns
 import numpy as np
 
 # Read the dataset
-df = pd.read_csv('preprocessed_dataset.csv')
+df = pd.read_csv('../datasets/preprocessed_dataset.csv')
 
 def age_midpoint(age_range):
     if pd.isnull(age_range):
@@ -44,22 +44,7 @@ categorical_columns = [
 for col in categorical_columns:
     df[col] = df[col].astype(str).str.strip()
 
-# ----------------------------
-# Visualization
-# ----------------------------
-
-# Set Seaborn theme
 sns.set_theme(style="whitegrid")
-
-# Plot 1: Number of Crashes by Hour
-plt.figure(figsize=(12, 6))
-sns.countplot(data=df, x='Crash Hour Numeric', color='skyblue')
-plt.title('Number of Crashes by Hour')
-plt.xlabel('Hour of Day')
-plt.ylabel('Number of Crashes')
-plt.xticks(rotation=45)
-plt.tight_layout()
-plt.show()
 
 # Plot 2: Crash Severity Distribution
 plt.figure(figsize=(8, 6))
@@ -68,18 +53,8 @@ plt.title('Distribution of Crash Severity')
 plt.xlabel('Number of Crashes')
 plt.ylabel('Crash Severity')
 plt.tight_layout()
-plt.show()
-
-# Plot 3: Crashes by Weather Conditions
-plt.figure(figsize=(10, 6))
-sns.countplot(data=df, y='Weather Conditions', color='lightgreen', order=df['Weather Conditions'].value_counts().index)
-plt.title('Number of Crashes by Weather Conditions')
-plt.xlabel('Number of Crashes')
-plt.ylabel('Weather Conditions')
-plt.tight_layout()
-plt.show()
-
-
+plt.savefig('../result_pics/crash_severity_distribution.png')
+plt.close()
 
 # Plot 4: Speed Limit vs. Crash Severity
 plt.figure(figsize=(10, 6))
@@ -88,77 +63,39 @@ plt.title('Speed Limit by Crash Severity')
 plt.xlabel('Crash Severity')
 plt.ylabel('Speed Limit (mph)')
 plt.tight_layout()
-plt.show()
-
-# Plot 5: Light Conditions During Crashes
-plt.figure(figsize=(10, 6))
-sns.countplot(data=df, y='Light Conditions', color='goldenrod', order=df['Light Conditions'].value_counts().index)
-plt.title('Number of Crashes by Light Conditions')
-plt.xlabel('Number of Crashes')
-plt.ylabel('Light Conditions')
-plt.tight_layout()
-plt.show()
-
-# Plot 6: Road Surface Conditions
-plt.figure(figsize=(10, 6))
-sns.countplot(data=df, y='Road Surface Condition', color='steelblue', order=df['Road Surface Condition'].value_counts().index)
-plt.title('Number of Crashes by Road Surface Condition')
-plt.xlabel('Number of Crashes')
-plt.ylabel('Road Surface Condition')
-plt.tight_layout()
-plt.show()
-
-# Plot 7: Number of Vehicles Involved in Crashes
-plt.figure(figsize=(8, 6))
-sns.countplot(data=df, x='Number of Vehicles', color='orchid')
-plt.title('Number of Vehicles Involved in Crashes')
-plt.xlabel('Number of Vehicles')
-plt.ylabel('Number of Crashes')
-plt.tight_layout()
-plt.show()
+plt.savefig('../result_pics/speed_limit_by_crash_severity.png')
+plt.close()
 
 # Plot 8: Driver Age Distribution
+young_age_df = df[['Youngest Driver Age', 'Crash Severity']].rename(columns={'Youngest Driver Age': 'Driver Age'})
+old_age_df = df[['Oldest Driver Age', 'Crash Severity']].rename(columns={'Oldest Driver Age': 'Driver Age'})
+combined_df = pd.concat([young_age_df, old_age_df]).dropna(subset=['Driver Age', 'Crash Severity'])
 plt.figure(figsize=(10, 6))
-# Drop NaN values for plotting
-young_age = df['Youngest Driver Age'].dropna()
-old_age = df['Oldest Driver Age'].dropna()
-
-sns.histplot(young_age, bins=range(0, 100, 5), kde=True, color='green', label='Youngest Driver Age', stat="density", alpha=0.6)
-sns.histplot(old_age, bins=range(0, 100, 5), kde=True, color='red', label='Oldest Driver Age', stat="density", alpha=0.6)
-plt.title('Driver Age Distribution')
+sns.histplot(data=combined_df, x='Driver Age', hue='Crash Severity', bins=range(0, 100, 5), stat="density", alpha=0.6, multiple="dodge")
+plt.title('Driver Age Distribution by Crash Severity')
 plt.xlabel('Age')
 plt.ylabel('Density')
-plt.legend()
 plt.tight_layout()
-plt.show()
+plt.savefig('../result_pics/driver_age_distribution_by_crash_severity.png')
+plt.close()
 
-# ----------------------------
-# Additional Visualizations (Optional)
-# ----------------------------
-
-# Crash severity and Weather Condition
+# Group by 'Weather Conditions' and 'Crash Severity' to get counts
 severity_counts = df.groupby(['Weather Conditions', 'Crash Severity']).size().reset_index(name='Count')
 # Calculate the proportion of each severity within each weather condition
 severity_counts['Proportion'] = severity_counts.groupby('Weather Conditions')['Count'].transform(lambda x: x / x.sum())
 
-# Plot the proportions
+# Exclude 'unknown' and 'other' categories from 'Weather Conditions'
+filtered_severity_counts = severity_counts[~severity_counts['Weather Conditions'].str.lower().isin(['unknown', 'other'])]
+
+# Plot the proportions without 'unknown' and 'other' weather conditions
 plt.figure(figsize=(12, 8))
-sns.barplot(x='Weather Conditions', y='Proportion', hue='Crash Severity', data=severity_counts)
-plt.title('Proportion of Crash Severity by Weather Conditions')
+sns.barplot(x='Weather Conditions', y='Proportion', hue='Crash Severity', data=filtered_severity_counts)
+plt.title('Proportion of Crash Severity by Weather Conditions (Excluding Unknown and Other)')
 plt.ylabel('Proportion')
+plt.xlabel('Weather Conditions')
 plt.xticks(rotation=45)
 plt.legend(title='Crash Severity')
 plt.tight_layout()
-plt.show()
+plt.savefig('../result_pics/proportion_of_crash_severity_by_weather_conditions.png')
+plt.close()
 
-
-# Example: Crash Severity over Crash Hours
-plt.figure(figsize=(12, 6))
-sns.countplot(data=df, x='Crash Hour Numeric', hue='Crash Severity', palette='Set3')
-plt.title('Crash Severity by Hour of Day')
-plt.xlabel('Hour of Day')
-plt.ylabel('Number of Crashes')
-plt.legend(title='Crash Severity', bbox_to_anchor=(1.05, 1), loc='upper left')
-plt.xticks(rotation=45)
-plt.tight_layout()
-plt.show()
