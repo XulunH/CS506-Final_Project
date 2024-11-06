@@ -14,7 +14,7 @@ Visualizations help us identify key trends and correlations in crash data, such 
 - **Speed Limit by Crash Severity**: The data indicates a general trend that as the speed limit increases, the severity of crashes also tends to increase. Higher speed limits are associated with a greater likelihood of injuries, and especially fatalities. 
    
 <p align="center">
-  <img src="file/file/Speed%20Limit%20by%20Crash%20Severity.png" alt="Speed Limit by Crash Severity">
+  <img src="file/Speed%20Limit%20by%20Crash%20Severity.png" alt="Speed Limit by Crash Severity">
 </p>
 
 - **SDriver Age Distribution by Crash Severity**: Property damage only bars are distributed across all age groups, with peaks particularly around ages 20-30, indicating that younger age ranges have higher frequency of property damage accidents compared with other age groups. Non-fatal injuries are also more common among the younger drivers, especially around ages 20-30, suggesting that younger drivers may be more prone to accidents that lead to injuries. Fatal injuries, although rare, are slightly more prevalent among the age 20 and 40. This condition might be due to inexperience among young drivers. In this case, younger drivers should be more cautious and be trained to reduce the risk of accidents. 
