@@ -54,12 +54,14 @@ The model performs well in identifying “Property Damage Only” cases, achievi
 In the linear regression case, most important features are collision with pedestrian and vulnerable users, and whether or not motorcycles are involved. These features seem to make sense because the people involved are not well protected, but we aim to find more useful features with more in depth research. 
 
 Decision Tree Result:
+
 ![Feature](file/6.jpg)
 
 Performance by Class:  When we don’t set the max_depth,  decision trees might still create complex splits, making them sensitive to noise and outliers. This could result in lower accuracy on test data. Therefore here we set max_depth to 15 to achieve a good accuracy.
 The model heavily favors Property damage (the majority class), resulting in many Class 1 (Non-fatal Injury) instances being misclassified as Class 2 (Property damage). This is a common issue with imbalanced datasets, where the model learns to predict the majority class more accurately but struggles with minority classes.The model failed to correctly classify any instances of Fatal Injury, which has very low representation. This is a strong indicator that the model might benefit from techniques to handle class imbalance, such as resampling or adjusting class weights
 
 Feature Importance Analysis:
+
 ![Feature](file/7.png)
 
 Below are the top three features that had the greatest impact on the results:
@@ -68,6 +70,7 @@ First Harmful Event - Collision with Cyclist: This feature ranks second, showing
 Manner of Collision - Sideswipe, Same Direction: This feature is important for distinguishing crash severity, as certain collision types, like sideswipes, can vary in severity depending on speed and angle, impacting the potential for injury or damage.
 
 XGBoost Model Result:
+
 ![Feature](file/8.jpg)
 Performance by Class: The model showed high performance in predicting the “Property damage only” class but struggled to accurately predict “Fatal injury” cases due to class imbalance.
 
