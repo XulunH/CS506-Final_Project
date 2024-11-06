@@ -15,7 +15,7 @@ Visualizations help us identify key trends and correlations in crash data, such 
 
 - **SDriver Age Distribution by Crash Severity**: Property damage only bars are distributed across all age groups, with peaks particularly around ages 20-30, indicating that younger age ranges have higher frequency of property damage accidents compared with other age groups. Non-fatal injuries are also more common among the younger drivers, especially around ages 20-30, suggesting that younger drivers may be more prone to accidents that lead to injuries. Fatal injuries, although rare, are slightly more prevalent among the age 20 and 40. This condition might be due to inexperience among young drivers. In this case, younger drivers should be more cautious and be trained to reduce the risk of accidents. 
    
-![Driver Age Distribution by Crash Severity](file/Driver Age Distribution by Crash Severity.png)
+![Driver Age Distribution by Crash Severity](file/Driver%20Age%20Distribution%20by%20Crash%20Severity.png)
 
 - **Proportion of Crash Severity by Weather Conditions**: Across all weather conditions, the majority of crashes result in property damage without injuries. This is consistent across both favorable and adverse conditions. The fatal injury happens much more significantly in fog/smog conditions compared to others, which are barely visible on this graph(though they do exist for each weather condition). Interestingly, severe winds and snow actually have a higher proportion of no-injury accidents, which was not expected since they are considered worse weather conditions. It might be because people are actually driving more slowly and carefully in bad weather.
    
