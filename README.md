@@ -3,7 +3,7 @@
 ## Project Overview
 This project aims to investigate the relationship between weather conditions, driver age, and the occurrence of traffic accidents. By analyzing how different weather conditions affect various age groups and influence the frequency and severity of accidents, we aim to uncover patterns and risk factors that can be used to improve road safety. The insights derived from this analysis will support transportation authorities, policymakers, and the public in developing targeted, preventive safety measures, particularly during adverse weather conditions.
 
-## Project Overview
+## Preliminary visualizations of data.
 Visualizations help us identify key trends and correlations in crash data, such as the effects of time, weather, speed, and road conditions on crash severity and frequency. This analysis is useful for developing targeted safety measures or driving policies. Below are some of our initial visualization results.
 - **Distribution of Crash Severity**: The majority of crashes fall in the “Property damage only category”, significantly outnumbering other types. As a matter of fact, property damage takes up 75.71%, with non-fatal 24.04% and fatal injury only 0.25% of the total data. Therefore we would expect our prediction baseline to be 75.71%, and we need to improve the accuracy to be at least higher than this number.
    
