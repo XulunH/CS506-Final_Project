@@ -43,7 +43,7 @@ Originally, we had planned to predict the severity of traffic accidents based up
 Of all these features, some of the records are not very standard. For example in the weather condition column, we would see notations like clear/cloudy, snow/cloudy or even clear/clear, which are all very confusing. Therefore, we preprocessed some of the records to make them cleaner and easier to interpret with methods like this:
 
 <p align="center">
-  <img src="file/3.jpg" alt="Feature">
+  <img src="file/3.png" alt="Feature">
 </p>
 
 Do note that these are just preliminary data processing, which we will focus on enhancing later. 
