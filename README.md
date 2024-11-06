@@ -7,11 +7,11 @@ This project aims to investigate the relationship between weather conditions, dr
 Visualizations help us identify key trends and correlations in crash data, such as the effects of time, weather, speed, and road conditions on crash severity and frequency. This analysis is useful for developing targeted safety measures or driving policies. Below are some of our initial visualization results.
 - **Distribution of Crash Severity**: The majority of crashes fall in the “Property damage only category”, significantly outnumbering other types. As a matter of fact, property damage takes up 75.71%, with non-fatal 24.04% and fatal injury only 0.25% of the total data. Therefore we would expect our prediction baseline to be 75.71%, and we need to improve the accuracy to be at least higher than this number.
    
-![Crash Severity Distribution](file/Distribution of Crash Severity.png)
+![Crash Severity Distribution](file/Distribution%20of%20Crash%20Severity.png)
 
 - **Speed Limit by Crash Severity**: The data indicates a general trend that as the speed limit increases, the severity of crashes also tends to increase. Higher speed limits are associated with a greater likelihood of injuries, and especially fatalities. 
    
-![Speed Limit by Crash Severity](file/Speed Limit by Crash Severity.png)
+![Speed Limit by Crash Severity](file/Speed%20Limit%20by%20Crash%20Severity.png)
 
 - **SDriver Age Distribution by Crash Severity**: Property damage only bars are distributed across all age groups, with peaks particularly around ages 20-30, indicating that younger age ranges have higher frequency of property damage accidents compared with other age groups. Non-fatal injuries are also more common among the younger drivers, especially around ages 20-30, suggesting that younger drivers may be more prone to accidents that lead to injuries. Fatal injuries, although rare, are slightly more prevalent among the age 20 and 40. This condition might be due to inexperience among young drivers. In this case, younger drivers should be more cautious and be trained to reduce the risk of accidents. 
    
@@ -19,7 +19,7 @@ Visualizations help us identify key trends and correlations in crash data, such 
 
 - **Proportion of Crash Severity by Weather Conditions**: Across all weather conditions, the majority of crashes result in property damage without injuries. This is consistent across both favorable and adverse conditions. The fatal injury happens much more significantly in fog/smog conditions compared to others, which are barely visible on this graph(though they do exist for each weather condition). Interestingly, severe winds and snow actually have a higher proportion of no-injury accidents, which was not expected since they are considered worse weather conditions. It might be because people are actually driving more slowly and carefully in bad weather.
    
-![Proportion of Crash Severity by Weather Conditions](file/Proportion of Crash Severity by Weather Conditions.png)
+![Proportion of Crash Severity by Weather Conditions](file/Proportion%20of%20Crash%20Severity%20by%20Weather%20Conditions.png)
 
 ## Detailed description of data processing done so far.
 Originally, we had planned to predict the severity of traffic accidents based upon only a few factors like weather conditions and age of drivers. But then we realized that these factors alone do not provide enough prediction accuracy as we assumed they would, therefore, we introduced many more factors into the dataset, and tried to pinpoint which features are most relevant in predicting the severity of accidents. All these additional factors can be pulled from the MASSDOT website which provides very detailed crash reports. Now it comes down to these features:
