@@ -33,11 +33,11 @@ Visualizations help us identify key trends and correlations in crash data, such 
 Originally, we had planned to predict the severity of traffic accidents based upon only a few factors like weather conditions and age of drivers. But then we realized that these factors alone do not provide enough prediction accuracy as we assumed they would, therefore, we introduced many more factors into the dataset, and tried to pinpoint which features are most relevant in predicting the severity of accidents. All these additional factors can be pulled from the MASSDOT website which provides very detailed crash reports. Now it comes down to these features:
 
 <p align="center">
-  <img src="file/1.jpg" alt="Feature">
+  <img src="file/1.png" alt="Feature">
 </p>
 
 <p align="center">
-  <img src="file/2.jpg" alt="Feature">
+  <img src="file/2.png" alt="Feature">
 </p>
 
 Of all these features, some of the records are not very standard. For example in the weather condition column, we would see notations like clear/cloudy, snow/cloudy or even clear/clear, which are all very confusing. Therefore, we preprocessed some of the records to make them cleaner and easier to interpret with methods like this:
