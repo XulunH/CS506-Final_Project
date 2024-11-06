@@ -30,6 +30,7 @@ Originally, we had planned to predict the severity of traffic accidents based up
 Of all these features, some of the records are not very standard. For example in the weather condition column, we would see notations like clear/cloudy, snow/cloudy or even clear/clear, which are all very confusing. Therefore, we preprocessed some of the records to make them cleaner and easier to interpret with methods like this:
 
 ![Feature](file/3.jpg)
+
 Do note that these are just preliminary data processing, which we will focus on enhancing later. 
 
 ## Detailed description of data modeling methods used so far.
@@ -45,13 +46,16 @@ Logistic Regression Result:
 The logistic regression model’s performance on the test set:
 
 ![Feature](file/4.jpg)
+
 The model performs well in identifying “Property Damage Only” cases, achieving high precision and recall. However, it struggles with the “Fatal Injury” category, where both precision and recall are zero due to the model’s difficulty in capturing this minority class.
 
 ![Feature](file/5.png)
+
 In the linear regression case, most important features are collision with pedestrian and vulnerable users, and whether or not motorcycles are involved. These features seem to make sense because the people involved are not well protected, but we aim to find more useful features with more in depth research. 
 
 Decision Tree Result:
 ![Feature](file/6.jpg)
+
 Performance by Class:  When we don’t set the max_depth,  decision trees might still create complex splits, making them sensitive to noise and outliers. This could result in lower accuracy on test data. Therefore here we set max_depth to 15 to achieve a good accuracy.
 The model heavily favors Property damage (the majority class), resulting in many Class 1 (Non-fatal Injury) instances being misclassified as Class 2 (Property damage). This is a common issue with imbalanced datasets, where the model learns to predict the majority class more accurately but struggles with minority classes.The model failed to correctly classify any instances of Fatal Injury, which has very low representation. This is a strong indicator that the model might benefit from techniques to handle class imbalance, such as resampling or adjusting class weights
 
@@ -69,6 +73,7 @@ Performance by Class: The model showed high performance in predicting the “Pro
 
 The matrix shows that most predictions fall into the “Property damage only” category, indicating a need for further adjustments to improve minority class predictions.
 Feature Importance Analysis:
+
 ![Feature](file/8.png)
 
 Using XGBoost’s feature importance scores, we identified key predictors of crash severity:
