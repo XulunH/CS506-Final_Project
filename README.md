@@ -75,7 +75,7 @@ In the linear regression case, most important features are collision with pedest
 Decision Tree Result:
 
 <p align="center">
-  <img src="file/6.png" alt="Feature">
+  <img src="file/6.jpg" alt="Feature">
 </p>
 
 Performance by Class:  When we don’t set the max_depth,  decision trees might still create complex splits, making them sensitive to noise and outliers. This could result in lower accuracy on test data. Therefore here we set max_depth to 15 to achieve a good accuracy.
