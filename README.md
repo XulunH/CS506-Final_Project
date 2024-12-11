@@ -30,7 +30,7 @@ on crash severity and frequency. This analysis is useful for developing
 targeted safety measures or driving policies. Below are some of our
 visualization results.
 
-![](media/image18.png){width="4.869792213473316in"
+![](./media/media/image18.png){width="4.869792213473316in"
 height="2.3412456255468066in"}
 
 **Distribution of Crash Severity:**
@@ -44,7 +44,7 @@ damage takes up 75.71%, with non-fatal 24.04% and fatal injury only
 baseline to be 75.71%. The goal of a "good" model would be to predict
 with an accuracy which is at least higher than this number.
 
-![](media/image15.png){width="3.9509536307961506in"
+![](./media/media/image15.png){width="3.9509536307961506in"
 height="2.3802088801399823in"}
 
 **Speed Limit by Crash Severity:**
@@ -56,7 +56,7 @@ fatalities. There are of course, outliers in both "property damage" as
 well as "non-fatal" severities, but the middle fifty percentile does
 show a clear trend.
 
-![](media/image16.png){width="4.973958880139983in"
+![](./media/media/image16.png){width="4.973958880139983in"
 height="2.98915791776028in"}
 
 **Driver Age Distribution by Crash Severity：**
@@ -72,7 +72,7 @@ condition might be due to inexperience among young drivers. In this
 case, younger drivers should be more cautious and be trained to reduce
 the risk of accidents.
 
-![](media/image19.png){width="5.380208880139983in"
+![](./media/media/image19.png){width="5.380208880139983in"
 height="2.58663823272091in"}
 
 **Proportion of Crash Severity by Weather Conditions:**
@@ -97,17 +97,18 @@ introduced many more factors into the dataset, and tried to pinpoint
 which features are most relevant in predicting the severity of
 accidents. All these additional factors can be pulled from the MASSDOT
 website. Now we have selected the following features for
-prediction:![](media/image9.jpg){width="3.7662106299212597in"
+prediction:![](./media/media/image9.jpg){width="3.7662106299212597in"
 height="3.2332556867891515in"}
 
-![](media/image11.jpg){width="6.5in" height="0.2361111111111111in"}
+![](./media/media/image11.jpg){width="6.5in"
+height="0.2361111111111111in"}
 
 Of all these features, some of the records are not very standard. For
 example in the weather condition column, we would see notations like
 clear/cloudy, snow/cloudy or even clear/clear, which are all very
 confusing. Therefore, we preprocessed some of the records to make them
 cleaner and easier to interpret with methods like
-this:![](media/image1.jpg){width="4.301955380577428in"
+this:![](./media/media/image1.jpg){width="4.301955380577428in"
 height="3.651147200349956in"}
 
 **5. Detailed description of data modeling methods.**
@@ -127,14 +128,16 @@ each class (Fatal injury, Non-fatal injury, Property damage only).
 
 > The logistic regression model's performance on the test set:
 >
-> ![](media/image12.jpg){width="6.5in" height="1.4305555555555556in"}
+> ![](./media/media/image12.jpg){width="6.5in"
+> height="1.4305555555555556in"}
 >
 > The model performs well in identifying "Property Damage Only" cases,
 > achieving high precision and recall. However, it struggles with the
 > "Fatal Injury" category, where both precision and recall are zero due
 > to the model's difficulty in capturing this minority class.
 >
-> ![](media/image13.png){width="6.5in" height="4.138888888888889in"}
+> ![](./media/media/image13.png){width="6.5in"
+> height="4.138888888888889in"}
 >
 > In the linear regression case, most important features are collision
 > with pedestrian and vulnerable users, and whether or not motorcycles
@@ -144,7 +147,8 @@ each class (Fatal injury, Non-fatal injury, Property damage only).
 
 2.  **Decision Tree Result**
 
-> ![](media/image6.jpg){width="6.5in" height="1.4166666666666667in"}
+> ![](./media/media/image6.jpg){width="6.5in"
+> height="1.4166666666666667in"}
 >
 > Performance by Class: When we don't set the max_depth, decision trees
 > might still create complex splits, making them sensitive to noise and
@@ -153,7 +157,8 @@ each class (Fatal injury, Non-fatal injury, Property damage only).
 >
 > Feature Importance Analysis:
 >
-> ![](media/image20.png){width="4.354166666666667in" height="2.375in"}
+> ![](./media/media/image20.png){width="4.354166666666667in"
+> height="2.375in"}
 >
 > Top features selected seem to align with the results we get from
 > logistic regression before, which are
@@ -162,12 +167,12 @@ each class (Fatal injury, Non-fatal injury, Property damage only).
 
 3.  **XGBoost Model Result**
 
-![](media/image5.jpg){width="6.114583333333333in"
+![](./media/media/image5.jpg){width="6.114583333333333in"
 height="1.2291666666666667in"}
 
 **Feature Importance Analysis**
 
-![](media/image4.png){width="6.552083333333333in"
+![](./media/media/image4.png){width="6.552083333333333in"
 height="4.376537620297463in"}
 
 Top features for XGBoost align well with the previous two methods, which
@@ -181,7 +186,7 @@ data to improve prediction accuracy. Below is the structure of MLP:
 
 **Structure of MLP**
 
-![](media/image14.png){width="4.322916666666667in"
+![](./media/media/image14.png){width="4.322916666666667in"
 height="2.7233366141732285in"}
 
 The implemented neural network is a fully connected feedforward model
@@ -226,10 +231,10 @@ overfitting to the training set.
 
 **Result of MLP**
 
-![](media/image8.png){width="5.494792213473316in"
+![](./media/media/image8.png){width="5.494792213473316in"
 height="1.8404024496937883in"}
 
-![](media/image3.png){width="5.463542213473316in"
+![](./media/media/image3.png){width="5.463542213473316in"
 height="2.626702755905512in"}
 
 MLP model accuracy is 0.7829. The F-1 score of Fatal injury is 0.04,
@@ -241,7 +246,7 @@ modest.
 
 **Training and Validation**
 
-![](media/image2.png){width="2.9131944444444446in"
+![](./media/media/image2.png){width="2.9131944444444446in"
 height="1.9047812773403325in"}
 
 The training accuracy steadily increases across epochs and continues to
@@ -250,7 +255,7 @@ the training accuracy but stabilizes earlier and shows slight
 fluctuations. The close alignment between training and validation
 accuracies indicates the model is not overfitting.
 
-![](media/image7.png){width="3.7031255468066493in"
+![](./media/media/image7.png){width="3.7031255468066493in"
 height="2.772496719160105in"}
 
 The losses stabilize after about 10 epochs and remain almost constant
@@ -271,12 +276,13 @@ the validation loss closely follows the training loss.
 
 **Accuracy:**
 
-![](media/image10.png){width="5.902620297462817in"
+![](./media/media/image10.png){width="5.902620297462817in"
 height="1.6293689851268591in"}
 
 **Confusion Matrix Heatmap:**
 
-![](media/image17.png){width="5.84375in" height="4.581457786526684in"}
+![](./media/media/image17.png){width="5.84375in"
+height="4.581457786526684in"}
 
 > The confusion matrix heatmap demonstrates strong performance in
 > predicting the "Property Damage Only" category, where the majority of
