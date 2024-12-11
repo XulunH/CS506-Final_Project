@@ -1,6 +1,5 @@
-**CS 506 Final Report**
-
-**Xulun Huang, Luying Ruan, Yuzhe Wu**
+<h1 style="text-align: center;">CS 506 Final Report</h1>
+<p style="text-align: center;"><strong>Author:</strong> Xulun Huang, Luying Ruan, Yuzhe Wu<br>
 
 **1. Project Overview**
 
